@@ -14,11 +14,17 @@
     <link rel="apple-touch-icon" sizes="180x180" href="Assets/Favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="32x32" href="Assets/Favicon/favicon-32x32.png">
     <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.4.0/remixicon.css"
+        integrity="sha512-hH7VMMVfPgfkpYx2GazOEG6RrYM+y8cS7FzccwBTWQeyhPv01XYk0MVcuhh4EAimOELWvqKjhNwes/UsYoyN6w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
 
 <body style="background-color: #F0F0F0;">
-    <div class="announcement-bar">
-        <marquee behavior="" direction="">
+    <!-- <marquee behavior="" direction=""> -->
+    <div class="announcement">
+        <div class="announcement-bar">
             <span>BUY 1 + GET AN EXTRA ₹150 OFF</span>
             <span>•</span>
             <span>BUY 2 GET AT FLAT ₹1499</span>
@@ -26,11 +32,28 @@
             <span>BUY 2 GET AT FLAT ₹1999</span>
             <span>•</span>
             <span>BUY 2 GET AT FLAT ₹2499</span>
-        </marquee>
+            <span>BUY 1 + GET AN EXTRA ₹150 OFF</span>
+            <span>•</span>
+            <span>BUY 2 GET AT FLAT ₹1499</span>
+            <span>•</span>
+            <span>BUY 2 GET AT FLAT ₹1999</span>
+            <span>•</span>
+            <span>BUY 2 GET AT FLAT ₹2499</span>
+            <span>BUY 1 + GET AN EXTRA ₹150 OFF</span>
+            <span>•</span>
+            <span>BUY 2 GET AT FLAT ₹1499</span>
+            <span>•</span>
+            <span>BUY 2 GET AT FLAT ₹1999</span>
+            <span>•</span>
+            <span>BUY 2 GET AT FLAT ₹2499</span>
+        </div>
     </div>
+    <!-- </marquee> -->
     <Header>
         <div class="Logo">
-            <img src="Assets/Logo/Voyage_hindi_2.png" alt="">
+            <a href="index.html">
+                <img src="Assets/Logo/Voyage_hindi_2.png" alt="">
+            </a>
         </div>
         <nav>
             <ul>
@@ -43,36 +66,98 @@
             </ul>
         </nav>
         <div class="menu">
-            <div class="search">
+            <div class="search" style="cursor: pointer;" onclick="toggleOffcanvas()">
                 <svg role="presentation" stroke-width="2" focusable="false" width="22" height="22"
                     class="icon icon-search" viewBox="0 0 22 22">
                     <circle cx="11" cy="10" r="7" fill="none" stroke="currentColor"></circle>
                     <path d="m16 15 3 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
             </div>
-            <div class="acc">
+
+            <div class="offcanvas" id="offcanvasMenu">
+                <div class="offcanvas-header">
+                    <h2 class="offcanvas-title">Search for...</h2>
+                    <button class="btn-close" onclick="toggleOffcanvas()">&times;</button>
+                </div>
+                <input type="text" class="search-input" placeholder="Search for...">
+                <div class="menu-item">SUNGLASSES</div>
+                <div class="menu-item">CATEGORIES</div>
+                <div class="menu-item">POLARIZED SUNGLASSES</div>
+                <div class="menu-item">NEW ARRIVALS</div>
+                <div class="menu-item">ACCESSORIES</div>
+                <div class="menu-item">RETURN & EXCHANGE</div>
+            </div>
+
+            <div class="acc" onclick="openModal()">
                 <div id="kp-login-button-header-logo" style="cursor: pointer;display: flex;align-items: center;"><svg
                         width="25" height="25" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"
                         id="svgkp">
                         <path
-                            d="M22.9129 12.935L13.7571 23.0474C13.5348 23.2929 13.1284 23.1084 13.1669 22.7794L14.0816 14.9731H10.6991C10.4034 14.9731 10.2484 14.6219 10.4478 14.4035L20.3133 3.59739C20.5589 3.32834 20.9984 3.58134 20.8891 3.92887L18.2354 12.3664H22.6607C22.9557 12.3664 23.1109 12.7163 22.9129 12.935Z"
+                            d="M22.9129 12.935L1+.3.7571 23.0474C13.5348 23.2929 13.1284 23.1084 13.1669 22.7794L14.0816 14.9731H10.6991C10.4034 14.9731 10.2484 14.6219 10.4478 14.4035L20.3133 3.59739C20.5589 3.32834 20.9984 3.58134 20.8891 3.92887L18.2354 12.3664H22.6607C22.9557 12.3664 23.1109 12.7163 22.9129 12.935Z"
                             fill="#FEA203"></path>
                         <path id="svgkp-path" fill-rule="evenodd" clip-rule="evenodd"
                             d="M16.6079 5.35819C16.4805 5.1933 16.3421 5.03582 16.1932 4.8869C15.2702 3.96387 14.0183 3.44531 12.7129 3.44531C11.4075 3.44531 10.1556 3.96387 9.2326 4.8869C8.30957 5.80993 7.79102 7.06183 7.79102 8.36719C7.79102 9.67255 8.30957 10.9244 9.2326 11.8475C9.48368 12.0986 9.75909 12.3197 10.0533 12.5086L11.0235 11.4503C10.7335 11.2914 10.4649 11.0911 10.227 10.8531C9.56766 10.1938 9.19727 9.29959 9.19727 8.36719C9.19727 7.43479 9.56766 6.54057 10.227 5.88127C10.8863 5.22196 11.7805 4.85156 12.7129 4.85156C13.6453 4.85156 14.5395 5.22196 15.1988 5.88127C15.3636 6.04604 15.5103 6.22549 15.6377 6.41654L16.6079 5.35819ZM20.6413 18.6497L19.6746 19.7132C20.1676 20.4122 20.4473 21.2264 20.4473 22.0781V23.8359C20.4473 24.2243 20.7621 24.5391 21.1504 24.5391C21.5387 24.5391 21.8535 24.2243 21.8535 23.8359V22.0781C21.8535 20.7863 21.4016 19.6103 20.6413 18.6497ZM12.3111 17.5078H10.3026C7.27113 17.5078 4.97852 19.6394 4.97852 22.0781V23.8359C4.97852 24.2243 4.66372 24.5391 4.27539 24.5391C3.88707 24.5391 3.57227 24.2243 3.57227 23.8359V22.0781C3.57227 18.6922 6.67684 16.1016 10.3026 16.1016H12.4885L12.3111 17.5078Z"
                             fill="currentColor" stroke="currentColor"></path>
                     </svg></div>
             </div>
-            <div class="cart">
-                <svg role="presentation" stroke-width="2" focusable="false" width="22" height="22"
-                    class="icon icon-cart" viewBox="0 0 22 22">
-                    <path
-                        d="M11 7H3.577A2 2 0 0 0 1.64 9.497l2.051 8A2 2 0 0 0 5.63 19H16.37a2 2 0 0 0 1.937-1.503l2.052-8A2 2 0 0 0 18.422 7H11Zm0 0V1"
-                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-                <!-- <div class="header__cart-count">
+
+            <!-- Modal -->
+            <div class="modal" id="authModal">
+                <div class="modal-content">
+                    <span class="close-btn" onclick="closeModal()">&times;</span>
+
+                    <!-- Tabs -->
+                    <div class="tabs">
+                        <div class="tab active" id="loginTab" onclick="toggleForm('login')">Login</div>
+                        <div class="tab" id="registerTab" onclick="toggleForm('register')">Register</div>
+                    </div>
+
+                    <!-- Login Form -->
+                    <div class="form-section active" id="loginForm">
+                        <div class="form-group">
+                            <input type="email" id="loginEmail" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="loginPassword" placeholder="Password" required>
+                        </div>
+                        <button class="btn-primary" onclick="login()">Login</button>
+                        <div class="toggle-text">
+                            Don't have an account? <a onclick="toggleForm('register')">Register here</a>
+                        </div>
+                    </div>
+
+                    <!-- Register Form -->
+                    <div class="form-section" id="registerForm">
+                        <div class="form-group">
+                            <input type="text" id="registerName" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="registerEmail" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="registerPassword" placeholder="Password" required>
+                        </div>
+                        <button class="btn-primary" onclick="register()">Register</button>
+                        <div class="toggle-text">
+                            Already have an account? <a onclick="toggleForm('login')">Login here</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <a href="cart.html">
+                <div class="cart" style="color: black;">
+                    <svg role="presentation" stroke-width="2" focusable="false" width="22" height="22"
+                        class="icon icon-cart" viewBox="0 0 22 22">
+                        <path
+                            d="M11 7H3.577A2 2 0 0 0 1.64 9.497l2.051 8A2 2 0 0 0 5.63 19H16.37a2 2 0 0 0 1.937-1.503l2.052-8A2 2 0 0 0 18.422 7H11Zm0 0V1"
+                            fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <!-- <div class="header__cart-count">
                     <cart-count class="count-bubble opacity-0" aria-hidden="true">0</cart-count>
                 </div> -->
-            </div>
+                </div>
         </div>
     </Header>
 
@@ -98,10 +183,549 @@
                 <div class="m5">
                     <img src="Assets/Models/Artboard_1_copy_5-1_d156a07d-24c4-42b0-af5e-fb3fb87194a9.jpg" alt="">
                 </div>
+                <div class="m6">
+                    <img src="Assets/Models/Artboard_1_copy_4_08a92507-56c2-4079-9c01-a81a921319f4.jpg" alt="">
+                </div>
+                <div class="m7">
+                    <img src="Assets/Models/Artboard_1_copy_91894806-38b2-4064-a2c1-ac55516ea92a.jpg" alt="">
+                </div>
             </div>
         </div>
     </div>
 
+    <div class="mainSection-3">
+        <div class="sub-sec2">
+            <div class="heading">
+                <h1>Quick Picks</h1>
+                <a href="productpage.html" class="view" style="text-decoration: none; color: black;"> View all <i
+                        class="ri-arrow-drop-right-line" style="font-size: 16px;"></i></a>
+            </div>
+            <div class="models2">
+                <div class="s1">
+                    <button class="sa1">Save Rs. 1,751.00</button>
+                    <button class="q1">+ Quick add</button>
+                    <img src="Assets/Products/2_2d7a94d1-ef5b-4e51-81f2-2e829f15f5e4.jpg" alt="">
+                    <div class="desbox1">
+                        <div class="description1">
+                            <p style="font-weight: 700; font-size: 15px; line-height: 20px;">Captain | Black and Silver
+                                Polarized <br>
+                                Round Sun...</p>
+                            <div class="price" style="font-size: 14px; ">Rs. 1,249.00 &nbsp; <span
+                                    style="text-decoration: line-through; color: rgb(93, 92, 92);">Rs. 3,000.00</span>
+                            </div>
+                            <div class="emide" style="font-size: 10px; font-weight: 800;">or Rs. 416/Month <a href=""
+                                    style="text-decoration: none; font-weight: 800;">Buy on EMI > </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s2">
+                    <button class="sa2">Save Rs. 450.00</button>
+                    <button class="q2">+ Quick add</button>
+                    <img src="Assets/Products/19_67effafa-4625-487c-be06-4507eab209d1.jpg" alt="">
+                    <div class="desbox2">
+                        <div class="description2">
+                            <p style="font-weight: 700; font-size: 15px; line-height: 20px;">Captain | Black and Silver
+                                Polarized <br>
+                                Round Sun...</p>
+                            <div class="price" style="font-size: 14px; ">Rs. 1,249.00 &nbsp; <span
+                                    style="text-decoration: line-through; color: rgb(93, 92, 92);">Rs. 3,000.00</span>
+                            </div>
+                            <div class="emide" style="font-size: 10px; font-weight: 800;">or Rs. 416/Month <a href=""
+                                    style="text-decoration: none; font-weight: 800;">Buy on EMI > </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s3">
+                    <button class="sa3">Save Rs. 1,751.00</button>
+                    <button class="q3">+ Quick add</button>
+                    <img src="Assets/Products/1_71f41b62-ff35-4f05-a175-a43afcaf8033.jpg" alt="">
+                    <div class="desbox3">
+                        <div class="description3">
+                            <p style="font-weight: 700; font-size: 15px; line-height: 20px;">Captain | Black and Silver
+                                Polarized <br>
+                                Round Sun...</p>
+                            <div class="price" style="font-size: 14px; ">Rs. 1,249.00 &nbsp; <span
+                                    style="text-decoration: line-through; color: rgb(93, 92, 92);">Rs. 3,000.00</span>
+                            </div>
+                            <div class="emide" style="font-size: 10px; font-weight: 800;">or Rs. 416/Month <a href=""
+                                    style="text-decoration: none; font-weight: 800;">Buy on EMI > </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s4">
+                    <button class="sa4">Save Rs. 1,751.00</button>
+                    <button class="q4">+ Quick add</button>
+                    <img src="Assets/Products/8_cb2a36d6-c77a-412a-a763-b69f4a3f47da.jpg" alt="">
+                    <div class="desbox4">
+                        <div class="description4">
+                            <p style="font-weight: 700; font-size: 15px; line-height: 20px;">Captain | Black and Silver
+                                Polarized <br>
+                                Round Sun...</p>
+                            <div class="price" style="font-size: 14px; ">Rs. 1,249.00 &nbsp; <span
+                                    style="text-decoration: line-through; color: rgb(93, 92, 92);">Rs. 3,000.00</span>
+                            </div>
+                            <div class="emide" style="font-size: 10px; font-weight: 800;">or Rs. 416/Month <a href=""
+                                    style="text-decoration: none; font-weight: 800;">Buy on EMI > </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mainSection-4">
+        <div class="sub-sec3">
+            <h1>Celebrity Spotted</h1>
+            <div class="models3">
+                <div class="m8">
+                    <img src="Assets/Models/Parnitti.jpg" alt="">
+                </div>
+                <div class="m9">
+                    <img src="Assets/Models/MANOJ_BAJPAYEE.jpg" alt="">
+                </div>
+                <div class="m10">
+                    <img src="Assets/Models/MANIESH.jpg" alt="">
+                </div>
+                <div class="m11">
+                    <img src="Assets/Models/KARAN.jpg" alt="">
+                </div>
+                <div class="m12">
+                    <img src="Assets/Models/PRINCE_d25512d9-66e8-408c-93ee-47f22f46b919.jpg" alt="">
+                </div>
+                <div class="m13">
+                    <img src="Assets/Models/ADITYA_d1db9abd-f6a3-4119-9d36-77766d247bcd.jpg" alt="">
+                </div>
+                <div class="m14">
+                    <img src="Assets/Models/457594491_18337491109133807_3858259328606589632_n.jpg" alt="">
+                </div>
+                <div class="m15">
+                    <img src="Assets/Models/RAVI.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mainSection-5">
+        <div class="sub-sec4">
+            <div class="heading2">
+                <h1>New Launched</h1>
+                <a href="productpage.html" class="view" style="text-decoration: none; color: black;"> View all <i
+                        class="ri-arrow-drop-right-line"></i></a>
+            </div>
+            <div class="models4">
+                <div class="s5">
+                    <button class="sa5">Save Rs. 1,901.00</button>
+                    <button class="q5">+ Quick add</button>
+                    <img src="Assets/Products/20253PMG5589_2.jpg" alt="">
+                    <div class="desbox5">
+                        <div class="description5">
+                            <p style="font-weight: 700; font-size: 15px; line-height: 20px;">Wrap Around Polarized
+                                Sunglasses
+                                (Black Lens | ...</p>
+                            <div class="price" style="font-size: 14px; ">Rs. 1,099.00 &nbsp; <span
+                                    style="text-decoration: line-through; color: rgb(93, 92, 92);">Rs. 3,000.00</span>
+                            </div>
+                            <div class="emide" style="font-size: 10px; font-weight: 800;">or Rs. 366/Month <a href=""
+                                    style="text-decoration: none; font-weight: 800;">Buy on EMI > </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s6">
+                    <button class="sa6">Save Rs. 1901.00</button>
+                    <button class="q6">+ Quick add</button>
+                    <img src="Assets/Products/20253MG5557_2.jpg" alt="">
+                    <div class="desbox6">
+                        <div class="description6">
+                            <p style="font-weight: 700; font-size: 15px; line-height: 20px;">Wrap Around Sunglasses
+                                (Black Lens
+                                | Voilet Fra...</p>
+                            <div class="price" style="font-size: 14px; ">Rs. 1,099.00 &nbsp; <span
+                                    style="text-decoration: line-through; color: rgb(93, 92, 92);">Rs. 3,000.00</span>
+                            </div>
+                            <div class="emide" style="font-size: 10px; font-weight: 800;">or Rs. 366/Month <a href=""
+                                    style="text-decoration: none; font-weight: 800;">Buy on EMI > </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s7">
+                    <button class="sa7">Save Rs. 1,901.00</button>
+                    <button class="q7">+ Quick add</button>
+                    <img src="Assets/Products/20253MG5556_2.jpg" alt="">
+                    <div class="desbox7">
+                        <div class="description7">
+                            <p style="font-weight: 700; font-size: 15px; line-height: 20px;">Wrap Around Sunglasses
+                                (Light Brown Lens | Oliv...</p>
+                            <div class="price" style="font-size: 14px; ">Rs. 1,099.00 &nbsp; <span
+                                    style="text-decoration: line-through; color: rgb(93, 92, 92);">Rs. 3,000.00</span>
+                            </div>
+                            <div class="emide" style="font-size: 10px; font-weight: 800;">or Rs. 366/Month <a href=""
+                                    style="text-decoration: none; font-weight: 800;">Buy on EMI > </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s8">
+                    <button class="sa8">Save Rs. 1,901.00</button>
+                    <button class="q8">+ Quick add</button>
+                    <img src="Assets/Products/20236MG5554_2.jpg" alt="">
+                    <div class="desbox8">
+                        <div class="description8">
+                            <p style="font-weight: 700; font-size: 15px; line-height: 20px;">Oval Sunglasses (Grey Lens
+                                | Shine Black Frame ...</p>
+                            <div class="price" style="font-size: 14px; ">Rs. 1,099.00 &nbsp; <span
+                                    style="text-decoration: line-through; color: rgb(93, 92, 92);">Rs. 3,000.00</span>
+                            </div>
+                            <div class="emide" style="font-size: 10px; font-weight: 800;">or Rs. 366/Month <a href=""
+                                    style="text-decoration: none; font-weight: 800;">Buy on EMI > </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mainSection-6">
+        <div class="sub-sec5">
+            <h1>As Featured On</h1>
+            <div class="models5">
+                <div class="n1">
+                    <img src="Assets/Featured/Artboard_1_copy_2.jpg" alt="">
+                </div>
+                <div class="n2">
+                    <img src="Assets/Featured/Artboard_1_copy_9.jpg" alt="">
+                </div>
+                <div class="n3">
+                    <img src="Assets/Featured/Artboard_6.jpg" alt="">
+                </div>
+                <div class="n4">
+                    <img src="Assets/Featured/Artboard_1_copy_3.jpg" alt="">
+                </div>
+                <div class="n5">
+                    <img src="Assets/Featured/Artboard_1_copy_4_6f22a038-be4e-457b-b517-6d4bf4f14d42.jpg" alt="">
+                </div>
+                <div class="n6">
+                    <img src="Assets/Featured/Artboard_1_copy_8.jpg" alt="">
+                </div>
+                <div class="n7">
+                    <img src="Assets/Featured/Artboard_1_copy_5.jpg" alt="">
+                </div>
+                <div class="n8">
+                    <img src="Assets/Featured/Artboard_1_copy_10.jpg" alt="">
+                </div>
+                <!-- <div class="n9">
+                    <img src="Assets/Models/RAVI.jpg" alt="">
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="mainSection-7">
+        <div class="sub-sec6">
+            <div class="heading3">
+                <h1>Quick Picks</h1>
+                <a href="productpage.html" class="view" style="text-decoration: none; color: black;"> View all <i
+                        class="ri-arrow-drop-right-line"></i></a>
+            </div>
+            <div class="models6">
+                <div class="s9">
+                    <button class="sa9">Save Rs. 1,901.00</button>
+                    <button class="q9">+ Quick add</button>
+                    <img src="Assets/Products/952MG3669-3_c41b1dd0-1377-4621-be5b-1c4c51ba97a9.jpg" alt="">
+                    <div class="desbox9">
+                        <div class="description9">
+                            <p style="font-weight: 700; font-size: 15px; line-height: 20px;">Phantom | Black Wayfarer
+                                Sunglasses - MG3669</p>
+                            <div class="price" style="font-size: 14px; ">Rs. 1,099.00 &nbsp; <span
+                                    style="text-decoration: line-through; color: rgb(93, 92, 92);">Rs. 3,000.00</span>
+                            </div>
+                            <div class="emide" style="font-size: 10px; font-weight: 800;">or Rs. 366/Month <a href=""
+                                    style="text-decoration: none; font-weight: 800;">Buy on EMI > </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s10">
+                    <button class="sa10">Save Rs. 450.00</button>
+                    <button class="q10">+ Quick add</button>
+                    <img src="Assets/Products/2036MG2977-3_6aa192a4-8576-4051-9d63-3dc26acf0588.jpg" alt="">
+                    <div class="desbox10">
+                        <div class="description10">
+                            <p style="font-weight: 700; font-size: 15px; line-height: 20px;">The OG | Round Black Silver
+                                Sunglasses MG2977</p>
+                            <div class="price" style="font-size: 14px; ">Rs. 1,099.00 &nbsp; <span
+                                    style="text-decoration: line-through; color: rgb(93, 92, 92);">Rs. 3,000.00</span>
+                            </div>
+                            <div class="emide" style="font-size: 10px; font-weight: 800;">or Rs. 366/Month <a href=""
+                                    style="text-decoration: none; font-weight: 800;">Buy on EMI > </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s11">
+                    <button class="sa11">Save Rs. 1,901.00</button>
+                    <button class="q11">+ Quick add</button>
+                    <img src="Assets/Products/KS8072MG2830-3.jpg" alt="">
+                    <div class="desbox11">
+                        <div class="description11">
+                            <p style="font-weight: 700; font-size: 15px; line-height: 20px;">Lunar | Wayfarer Black
+                                Sunglasses - MG2830</p>
+                            <div class="price" style="font-size: 14px; ">Rs. 1,099.00 &nbsp; <span
+                                    style="text-decoration: line-through; color: rgb(93, 92, 92);">Rs. 3,000.00</span>
+                            </div>
+                            <div class="emide" style="font-size: 10px; font-weight: 800;">or Rs. 366/Month <a href=""
+                                    style="text-decoration: none; font-weight: 800;">Buy on EMI > </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="models7">
+                <div class="s12">
+                    <button class="sa12">Save Rs. 1,901.00</button>
+                    <button class="q12">+ Quick add</button>
+                    <img src="Assets/Products/2057MG3573-2.jpg" alt="">
+                    <div class="desbox12">
+                        <div class="description12">
+                            <p style="font-weight: 700; font-size: 15px; line-height: 20px;">Silver Digger | Black &
+                                Silver Rectangular Sung...</p>
+                            <div class="price" style="font-size: 14px; ">Rs. 1,099.00 &nbsp; <span
+                                    style="text-decoration: line-through; color: rgb(93, 92, 92);">Rs. 3,000.00</span>
+                            </div>
+                            <div class="emide" style="font-size: 10px; font-weight: 800;">or Rs. 366/Month <a href=""
+                                    style="text-decoration: none; font-weight: 800;">Buy on EMI > </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s13">
+                    <button class="sa13">Save Rs. 1,751.00</button>
+                    <button class="q13">+ Quick add</button>
+                    <img src="Assets/Products/2_2d7a94d1-ef5b-4e51-81f2-2e829f15f5e4.jpg" alt="">
+                    <div class="desbox13">
+                        <div class="description13">
+                            <p style="font-weight: 700; font-size: 15px; line-height: 20px;">Captain | Black and Silver
+                                Polarized Round Sun...</p>
+                            <div class="price" style="font-size: 14px; ">Rs. 1,249.00 &nbsp; <span
+                                    style="text-decoration: line-through; color: rgb(93, 92, 92);">Rs. 3,000.00</span>
+                            </div>
+                            <div class="emide" style="font-size: 10px; font-weight: 800;">or Rs. 366/Month <a href=""
+                                    style="text-decoration: none; font-weight: 800;">Buy on EMI > </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s14">
+                    <button class="sa14">Save Rs. 1,901.00</button>
+                    <button class="q14">+ Quick add</button>
+                    <img src="Assets/Products/B334MG3631-3.jpg" alt="">
+                    <div class="desbox14">
+                        <div class="description14">
+                            <p style="font-weight: 700; font-size: 15px; line-height: 20px;">Verve | Gradient Grey
+                                Wayfarer Sunglasses - MG3631</p>
+                            <div class="price" style="font-size: 14px; ">Rs. 1,099.00 &nbsp; <span
+                                    style="text-decoration: line-through; color: rgb(93, 92, 92);">Rs. 3,000.00</span>
+                            </div>
+                            <div class="emide" style="font-size: 10px; font-weight: 800;">or Rs. 366/Month <a href=""
+                                    style="text-decoration: none; font-weight: 800;">Buy on EMI > </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mainSection-8">
+        <div class="sub-sec-7">
+            <h1>From Ordinary to Extraordinary: Unveiling Whole New Look</h1>
+            <div class="dbs">
+                <img src="Assets/Products/Screenshot 2024-11-09 195804.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="infobox">
+        <div class="sub-sec8">
+            <div class="box1">
+                <svg role="presentation" fill="none" focusable="false" stroke-width="2" width="24" height="24"
+                    class="hidden sm:block icon icon-picto-customer-support" viewBox="0 0 24 24">
+                    <path
+                        d="M1.714 14.143c0-3.919 2.613-4.898 3.92-4.898 2.35 0 2.938 1.96 2.938 2.938v3.92c0 2.35-1.96 2.938-2.939 2.938-1.306 0-3.919-.98-3.919-4.898ZM22.286 14.143c0-3.919-2.613-4.898-3.92-4.898-2.35 0-2.937 1.96-2.937 2.938v3.92c0 2.35 1.96 2.938 2.938 2.938 1.306 0 3.919-.98 3.919-4.898Z"
+                        fill="currentColor" fill-opacity=".12"></path>
+                    <path
+                        d="M1.714 14.143c0-3.919 2.613-4.898 3.92-4.898 2.35 0 2.938 1.96 2.938 2.938v3.92c0 2.35-1.96 2.938-2.939 2.938-1.306 0-3.919-.98-3.919-4.898ZM22.286 14.143c0-3.919-2.613-4.898-3.92-4.898-2.35 0-2.937 1.96-2.937 2.938v3.92c0 2.35 1.96 2.938 2.938 2.938 1.306 0 3.919-.98 3.919-4.898Z"
+                        stroke="currentColor"></path>
+                    <path
+                        d="M2.38 11.263C2.524 6.537 4.929 1.286 12 1.286c7.06 0 9.468 5.232 9.617 9.951m.106 5.666s.134 3.079-1.447 4.42c-1.58 1.336-5.57 1.31-5.57 1.31"
+                        stroke="currentColor" stroke-linecap="round"></path>
+                </svg>
+                <h1 style="font-size: 20px; font-weight: 700;">Customer Service</h1>
+                <p style="font-weight: 400; font-size: 15px; line-height: 22px;">Experience personalized and exceptional
+                    customer service at Voyage Eyewear. Our friendly and knowledgeable team is dedicated to assisting
+                    you at every step, ensuring a seamless and enjoyable shopping experience.</p>
+            </div>
+            <div class="box2">
+                <svg role="presentation" fill="none" focusable="false" stroke-width="2" width="24" height="24"
+                    class="hidden sm:block icon icon-picto-coupon" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M16.89 21.975c-1.325.974-3.176.9-4.391-.209a131.923 131.923 0 0 1-9.792-9.94 3.17 3.17 0 0 1-.753-1.5C1.56 8.293.727 3.222 1.976 1.972c1.25-1.25 6.32-.416 8.352-.022.56.111 1.078.371 1.502.752a131.922 131.922 0 0 1 9.94 9.792c1.109 1.214 1.18 3.067.209 4.392-.701.955-1.442 1.914-2.31 2.78-.865.865-1.823 1.607-2.778 2.308ZM9.458 6.523a2.073 2.073 0 1 1-2.93 2.931 2.073 2.073 0 0 1 2.93-2.931Z"
+                        fill="currentColor" fill-opacity=".12" stroke="currentColor"></path>
+                </svg>
+                <h1 style="font-size: 20px; font-weight: 700;">Refer a Friend</h1>
+                <p style="font-weight: 400; font-size: 15px; line-height: 22px;">Share the Voyage Eyewear experience
+                    with your friends and be rewarded! Refer a friend, and you can enjoy exclusive benefits, creating a
+                    community of style and savings with each referral.</p>
+            </div>
+            <div class="box3">
+                <svg role="presentation" fill="none" focusable="false" stroke-width="2" width="24" height="24"
+                    class="hidden sm:block icon icon-picto-lock" viewBox="0 0 24 24">
+                    <path
+                        d="M3.236 18.182a5.071 5.071 0 0 0 4.831 4.465 114.098 114.098 0 0 0 7.865-.001 5.07 5.07 0 0 0 4.831-4.464 23.03 23.03 0 0 0 .165-2.611c0-.881-.067-1.752-.165-2.61a5.07 5.07 0 0 0-4.83-4.465c-1.311-.046-2.622-.07-3.933-.069a109.9 109.9 0 0 0-3.933.069 5.07 5.07 0 0 0-4.83 4.466 23.158 23.158 0 0 0-.165 2.609c0 .883.067 1.754.164 2.61Z"
+                        fill="currentColor" fill-opacity=".12" stroke="currentColor"></path>
+                    <path d="M17 8.43V6.285A5 5 0 0 0 7 6.286V8.43" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                    <path d="M12 17.714a2.143 2.143 0 1 0 0-4.286 2.143 2.143 0 0 0 0 4.286Z" stroke="currentColor">
+                    </path>
+                </svg>
+                <h1 style="font-size: 20px; font-weight: 700;">Secure Payment</h1>
+                <p style="font-weight: 400; font-size: 15px; line-height: 22px;">Shop with peace of mind at Voyage
+                    Eyewear, knowing that your transactions are protected by robust and secure payment methods, ensuring
+                    the safety of your personal and financial information.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="downloadbox">
+        <h1 style="color: white; font-size: 36px; font-weight: 700;">Download the VoyageEyewear App</h1>
+        <div class="apps">
+            <div class="app1">
+                <div class="ai">
+                    <img src="Assets/Logo/apple.png" alt="">
+                </div>
+                <div class="an">
+                    <a href="https://apps.apple.com/in/app/voyage-eyewear/id6446887573" target="_blank"
+                        class="market-btn apple-btn" role="button">
+                        <span class="market-button-subtitle"
+                            style="font-size: 12px; font-weight: 400; color: #919191;">Download on the</span>
+                        <span class="market-button-title" style="font-size: 18px; font-weight: 400; color: #222222;">App
+                            Store</span>
+                    </a>
+                </div>
+            </div>
+            <div class="app2">
+                <div class="ai">
+                    <img src="Assets/Logo/apps.png" alt="">
+                </div>
+                <div class="an">
+                    <a href="https://play.google.com/store/apps/details?id=com.voyageyewear" target="_blank"
+                        class="market-btn google-btn" role="button">
+                        <span class="market-button-subtitle"
+                            style="font-size: 12px; font-weight: 400; color: #919191;">Download on the</span>
+                        <span class="market-button-title"
+                            style="font-size: 18px; font-weight: 400; color: #222222;">Google Play</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="sub-sec9">
+            <div class="navs">
+                <div class="ser">
+                    <div class="p1" style="font-size: 16px; font-weight: 400; color: white;">Service</div>
+                    <div class="p2" style="color: #919191; margin-top: 35px; font-weight: 400;">
+                        Frame Guide <br> <br>
+                        Track Your Order ✈️ <br> <br>
+                        Note to customer <br> <br>
+                        Contact Us
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="p1" style="font-size: 16px; font-weight: 400; color: white;">Information</div>
+                    <div class="p2" style="color: #919191; margin-top: 35px; font-weight: 400;">
+                        Privacy policy <br> <br>
+                        Terms & Conditions <br> <br>
+                        Delivery & shipping <br> <br>
+                        Return Refunds & Exchange Policies
+                    </div>
+                </div>
+                <div class="cous">
+                    <div class="p1" style="font-size: 16px; font-weight: 400; color: white;">Contact us</div>
+                    <div class="p2" style="color: #919191; margin-top: 35px; font-weight: 400;">
+                        Email us <br> <br>
+                        WhatsApp us <br> <br>
+                        Return/Exchange Center
+                    </div>
+                </div>
+                <div class="about">
+                    <div class="p1" style="font-size: 16px; font-weight: 400; color: white;">About Voyage Eyewear</div>
+                    <div class="p2" style="color: #919191; margin-top: 35px; font-weight: 400;">
+                        About Us <br> <br>
+                        Blog
+                    </div>
+                </div>
+            </div>
+            <div class="lr">
+                <div class="l" style="color: white; font-size: 16px; font-weight: 700;">
+                    <p> Let's Connect On</p>
+                    <i class="ri-facebook-fill" style="color: white; font-size: 22px;"></i>
+                    <i class="ri-twitter-x-line" style="color: white; font-size: 22px;"></i>
+                    <i class="ri-instagram-line" style="color: #CEA7D4; font-size: 22px;"></i>
+                    <i class="ri-linkedin-fill" style="color: white; font-size: 22px;"></i>
+                </div>
+                <div class="r">
+                    <div class="in" style="height: 20px; width: 20px;"><img src="Assets/Logo/flag.png" alt=""
+                            style="height: 100%; width: 100%;"></div>
+                    <p style="color: white; font-size: 16px; font-weight: 700;">India (INR ₹)</p>
+                    <i class="ri-arrow-drop-down-line" style="color: white; font-size: 22px;"></i>
+                </div>
+            </div>
+            <div class="credit" style="color: #919191; text-align: center; line-height: 24px; font-size: 15px;">© 2024,
+                Voyage Eyewear - A Unit of SS Enterprises <br> Designed By Front-End Developer - Yash Sagar and Jeel
+                Nananiya</div>
+        </div>
+        <button id="button"><i class="ri-arrow-up-double-line" style="font-size: 20px;"></i></button>
+    </footer>
+
+
+    <script>
+        function toggleOffcanvas() {
+            const offcanvas = document.getElementById('offcanvasMenu');
+            offcanvas.classList.toggle('open');
+        }
+
+        function openModal() {
+            document.getElementById("modalOverlay").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("modalOverlay").style.display = "none";
+        }
+
+
+        $(document).ready(function () {
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 60) {
+                    $("#button").fadeIn();
+                }
+                else {
+                    $("#button").fadeOut();
+                }
+            })
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 100) {
+                    $("header").addClass("sticky");
+                }
+                else {
+                    $("header").removeClass("stick");
+                }
+            })
+
+            $("#button").click(function () {
+                $('html,body').animate({ scrollTop: 0 }, 1000)
+            })
+        })
+
+    </script>
+
 </body>
+<script src="JS/Reg.js"></script>
 
 </html>
