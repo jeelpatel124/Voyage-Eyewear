@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Product</title>
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/singal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="Assets/Favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Assets/Favicon/favicon-32x32.png">
+
+    <!-- tailwind  -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- sweet-alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    
+    <body style="background-color: #F0F0F0;">
+        <!-- <marquee behavior="" direction=""> -->
+        <div class="announcement">
+            <div class="announcement-bar">
+                <span>BUY 1 + GET AN EXTRA ₹150 OFF</span>
+                <span>•</span>
+                <span>BUY 2 GET AT FLAT ₹1499</span>
+                <span>•</span>
+                <span>BUY 2 GET AT FLAT ₹1999</span>
+                <span>•</span>
+                <span>BUY 2 GET AT FLAT ₹2499</span>
+                <span>BUY 1 + GET AN EXTRA ₹150 OFF</span>
+                <span>•</span>
+                <span>BUY 2 GET AT FLAT ₹1499</span>
+                <span>•</span>
+                <span>BUY 2 GET AT FLAT ₹1999</span>
+                <span>•</span>
+                <span>BUY 2 GET AT FLAT ₹2499</span>
+                <span>BUY 1 + GET AN EXTRA ₹150 OFF</span>
+                <span>•</span>
+                <span>BUY 2 GET AT FLAT ₹1499</span>
+                <span>•</span>
+                <span>BUY 2 GET AT FLAT ₹1999</span>
+                <span>•</span>
+                <span>BUY 2 GET AT FLAT ₹2499</span>
+            </div>
+        </div>
+        <!-- </marquee> -->
+        <Header>
+            <div class="Logo">
+                <img src="Assets/Voyage_hindi_2.png" alt="">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="">SUNGLASSES</a></li>
+                    <li><a href="">CATEGORIES</a></li>
+                    <li><a href="">POLARIZED SUNGLASSES</a></li>
+                    <li><a href="">NEW ARRIVALS</a></li>
+                    <li><a href="">ACCESSORIES</a></li>
+                    <li><a href="">RETURN & EXCHANGE</a></li>
+                </ul>
+            </nav>
+            <div class="menu">
+                <div class="search" style="cursor: pointer;" onclick="toggleOffcanvas()">
+                    <svg role="presentation" stroke-width="2" focusable="false" width="22" height="22"
+                        class="icon icon-search" viewBox="0 0 22 22">
+                        <circle cx="11" cy="10" r="7" fill="none" stroke="currentColor"></circle>
+                        <path d="m16 15 3 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+    
+                <div class="offcanvas" id="offcanvasMenu">
+                    <div class="offcanvas-header">
+                        <h2 class="offcanvas-title">Search for...</h2>
+                        <button class="btn-close" onclick="toggleOffcanvas()">&times;</button>
+                    </div>
+                    <input type="text" class="search-input" placeholder="Search for...">
+                    <div class="menu-item">SUNGLASSES</div>
+                    <div class="menu-item">CATEGORIES</div>
+                    <div class="menu-item">POLARIZED SUNGLASSES</div>
+                    <div class="menu-item">NEW ARRIVALS</div>
+                    <div class="menu-item">ACCESSORIES</div>
+                    <div class="menu-item">RETURN & EXCHANGE</div>
+                </div>
+    
+                <div class="acc" onclick="openModal()">
+                    <div id="kp-login-button-header-logo" style="cursor: pointer;display: flex;align-items: center;"><svg
+                            width="25" height="25" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            id="svgkp">
+                            <path
+                                d="M22.9129 12.935L13.7571 23.0474C13.5348 23.2929 13.1284 23.1084 13.1669 22.7794L14.0816 14.9731H10.6991C10.4034 14.9731 10.2484 14.6219 10.4478 14.4035L20.3133 3.59739C20.5589 3.32834 20.9984 3.58134 20.8891 3.92887L18.2354 12.3664H22.6607C22.9557 12.3664 23.1109 12.7163 22.9129 12.935Z"
+                                fill="#FEA203"></path>
+                            <path id="svgkp-path" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M16.6079 5.35819C16.4805 5.1933 16.3421 5.03582 16.1932 4.8869C15.2702 3.96387 14.0183 3.44531 12.7129 3.44531C11.4075 3.44531 10.1556 3.96387 9.2326 4.8869C8.30957 5.80993 7.79102 7.06183 7.79102 8.36719C7.79102 9.67255 8.30957 10.9244 9.2326 11.8475C9.48368 12.0986 9.75909 12.3197 10.0533 12.5086L11.0235 11.4503C10.7335 11.2914 10.4649 11.0911 10.227 10.8531C9.56766 10.1938 9.19727 9.29959 9.19727 8.36719C9.19727 7.43479 9.56766 6.54057 10.227 5.88127C10.8863 5.22196 11.7805 4.85156 12.7129 4.85156C13.6453 4.85156 14.5395 5.22196 15.1988 5.88127C15.3636 6.04604 15.5103 6.22549 15.6377 6.41654L16.6079 5.35819ZM20.6413 18.6497L19.6746 19.7132C20.1676 20.4122 20.4473 21.2264 20.4473 22.0781V23.8359C20.4473 24.2243 20.7621 24.5391 21.1504 24.5391C21.5387 24.5391 21.8535 24.2243 21.8535 23.8359V22.0781C21.8535 20.7863 21.4016 19.6103 20.6413 18.6497ZM12.3111 17.5078H10.3026C7.27113 17.5078 4.97852 19.6394 4.97852 22.0781V23.8359C4.97852 24.2243 4.66372 24.5391 4.27539 24.5391C3.88707 24.5391 3.57227 24.2243 3.57227 23.8359V22.0781C3.57227 18.6922 6.67684 16.1016 10.3026 16.1016H12.4885L12.3111 17.5078Z"
+                                fill="currentColor" stroke="currentColor"></path>
+                        </svg></div>
+                </div>
+    
+                <div class="modal-overlay" id="modalOverlay">
+                    <div class="modal">
+                        <!-- Left Side Content -->
+                        <div class="modal-left">
+                            <h1>Register now and claim exciting offers on your orders</h1>
+                            <div class="offer">
+                                <h3>🎉 Extra ₹150 Off</h3>
+                                <p>Claim your ₹150 off on your order</p>
+                            </div>
+                            <div class="offer">
+                                <h3>🎉 Super Sale - Save up to 50%</h3>
+                                <p>Get Super Sale Benefits - Save up to 50%</p>
+                            </div>
+                            <div class="offer">
+                                <h3>🎉 Buy 2 & Get 2nd at 50% off</h3>
+                                <p>Get special discounts</p>
+                            </div>
+                        </div>
+            
+                        <!-- Right Side Form -->
+                        <div class="modal-right">
+                            <h2>Unlock your discount offers now</h2>
+                            <input type="text" placeholder="Enter Mobile Number">
+                            <label>
+                                <input type="checkbox">
+                                Notify me for any updates & offers
+                            </label>
+                            <div style="text-align: center; margin: 10px 0;">OR</div>
+                            <button class="whatsapp-login">WhatsApp Login</button>
+                            <p>
+                                I accept that I have read & understood Gokwik's 
+                                <a href="#">Privacy Policy</a> and <a href="#">T&Cs</a>.
+                            </p>
+                            <p style="text-align: center;">
+                                <a href="#">Trouble logging in?</a>
+                            </p>
+                        </div>
+                        <!-- Close Button -->
+                        <div class="modal-close" onclick="closeModal()">&times;</div>
+                    </div>
+                </div>
+            
+    
+                <a href="cart.html"><div class="cart">
+                    <svg role="presentation" stroke-width="2" focusable="false" width="22" height="22"
+                        class="icon icon-cart" viewBox="0 0 22 22">
+                        <path
+                            d="M11 7H3.577A2 2 0 0 0 1.64 9.497l2.051 8A2 2 0 0 0 5.63 19H16.37a2 2 0 0 0 1.937-1.503l2.052-8A2 2 0 0 0 18.422 7H11Zm0 0V1"
+                            fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <!-- <div class="header__cart-count">
+                        <cart-count class="count-bubble opacity-0" aria-hidden="true">0</cart-count>
+                    </div> -->
+                </div></a>
+            </div>
+        </Header>
+
+        <div id="single_product_sec_1" class="mb-[100px] mt-[50px]">
+            
+        </div>
+        <!-- footer -->
+
+        <footer>
+            <div class="sub-sec9">
+                <div class="navs">
+                    <div class="ser">
+                        <div class="p1" style="font-size: 16px; font-weight: 400; color: white;">Service</div>
+                        <div class="p2" style="color: #919191; margin-top: 35px; font-weight: 400;">
+                            Frame Guide <br> <br>
+                            Track Your Order ✈ <br> <br>
+                            Note to customer <br> <br>
+                            Contact Us
+                        </div>
+                    </div>
+                    <div class="info">
+                        <div class="p1" style="font-size: 16px; font-weight: 400; color: white;">Information</div>
+                        <div class="p2" style="color: #919191; margin-top: 35px; font-weight: 400;">
+                            Privacy policy <br> <br>
+                            Terms & Conditions <br> <br>
+                            Delivery & shipping <br> <br>
+                            Return Refunds & Exchange Policies
+                        </div>
+                    </div>
+                    <div class="cous">
+                        <div class="p1" style="font-size: 16px; font-weight: 400; color: white;">Contact us</div>
+                        <div class="p2" style="color: #919191; margin-top: 35px; font-weight: 400;">
+                            Email us <br> <br>
+                            WhatsApp us <br> <br>
+                            Return/Exchange Center
+                        </div>
+                    </div>
+                    <div class="about">
+                        <div class="p1" style="font-size: 16px; font-weight: 400; color: white;">About Voyage Eyewear</div>
+                        <div class="p2" style="color: #919191; margin-top: 35px; font-weight: 400;">
+                            About Us <br> <br>
+                            Blog
+                        </div>
+                    </div>
+                </div>
+                <div class="lr">
+                    <div class="l" style="color: white; font-size: 16px; font-weight: 700;"> <p> Let's Connect On</p>
+                        <i class="ri-facebook-fill" style="color: white; font-size: 22px;"></i>
+                        <i class="ri-twitter-x-line" style="color: white; font-size: 22px;"></i>
+                        <i class="ri-instagram-line" style="color: #CEA7D4; font-size: 22px;"></i>  
+                        <i class="ri-linkedin-fill" style="color: white; font-size: 22px;"></i> 
+                    </div>
+                    <div class="r">
+                        <div class="in" style="height: 20px; width: 20px;"><img src="Assets/Logo/flag.png" alt="" style="height: 100%; width: 100%;"></div>
+                        <p style="color: white; font-size: 16px; font-weight: 700;">India (INR ₹)</p>
+                        <i class="ri-arrow-drop-down-line" style="color: white; font-size: 22px;"></i>
+                    </div>
+                </div>
+                <div class="credit" style="color: #919191; text-align: center; line-height: 24px; font-size: 15px;">© 2024, Voyage Eyewear - A Unit of SS Enterprises <br> Designed By Front-End Developer - Yash Sagar</div>
+            </div>
+        </footer>
+    <script src="JS/singal.js"></script>
+</body>
+</html>
